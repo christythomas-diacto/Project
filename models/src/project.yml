@@ -1,0 +1,43 @@
+version: 2
+ 
+sources:
+  - name: sources_case
+    database: project
+    schema: raw
+    tables:
+      - name: case_status
+        description: raw data for case
+        columns:
+          - name: case_id
+            description: primary key for case status.
+            tests:
+              - unique
+              - not_null    
+          - name: email
+            description: Email of patient.
+            tests:
+              - unique
+              - not_null   
+          - name: patient_id
+            description: Id of patient.
+            tests:
+              - unique
+              - not_null
+              
+  
+                
+ 
+      - name: master
+        description: raw data for master.
+        columns:
+          - name: id
+            description: primary key for master.
+            tests:
+              - unique
+              - not_null
+              
+          - name: case_id
+            description: case id for each patientr.
+            tests:
+              - unique
+        
